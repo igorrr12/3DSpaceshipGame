@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -159,7 +159,7 @@ Camera:
   m_GameObject: {fileID: 330585543}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -260,6 +260,12 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!1 &336932660 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 600173528464592887, guid: 0abd18b205567814aa2ba427b8b39b7a,
+    type: 3}
+  m_PrefabInstance: {fileID: 241375187185244488}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +462,7 @@ GameObject:
   m_Component:
   - component: {fileID: 832575519}
   - component: {fileID: 832575518}
+  - component: {fileID: 832575520}
   m_Layer: 0
   m_Name: Global Volume
   m_TagString: Untagged
@@ -495,6 +502,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &832575520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832575517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc650c3706320d4bbca335b12314d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  a1: {fileID: 336932660}
+  a2: {fileID: 1965063576}
+  a3: {fileID: 858282482}
+  a4: {fileID: 947651923}
+--- !u!1 &858282482 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3319165247204965310, guid: d2031a1b657ae374fb4e6b0ddb47ab02,
+    type: 3}
+  m_PrefabInstance: {fileID: 535529889750094069}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &947651923 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3161181293099326932, guid: 89d3ea4c7e2426b4383fbbaa67eb0d4d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7987773495704517153}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1965063576 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 600173528464592887, guid: 0abd18b205567814aa2ba427b8b39b7a,
+    type: 3}
+  m_PrefabInstance: {fileID: 540824684}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &241375187185244488
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -14,6 +14,10 @@ public class SpaceshipFly : MonoBehaviour
     public float brakeSpeed;
     public Rigidbody rb;
     public float Spead;
+    public Transform Gun1;
+    public Transform Gun2;
+    public GameObject bullet;
+
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +39,7 @@ public class SpaceshipFly : MonoBehaviour
         {
             rb.AddForce((transform.rotation * Vector3.back) * Spead);
         }
-        if (Input.GetKey(KeyCode.a))
+        if (Input.GetKey(KeyCode.A))
         {
             rb.AddForce((transform.rotation * Vector3.left) * Spead);
         }
@@ -43,7 +47,6 @@ public class SpaceshipFly : MonoBehaviour
         {
             rb.AddForce((transform.rotation * Vector3.right) * Spead);
         }
-
         if (Input.GetKey(KeyCode.Space))
         {
             rb.AddForce((transform.rotation * Vector3.up) * Spead);
@@ -51,6 +54,13 @@ public class SpaceshipFly : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftControl))
         {
             rb.AddForce((transform.rotation * Vector3.down) * Spead);
+        }
+
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Instantiate(bullet, Gun1.transform.position, Gun1.transform.rotation);
+            Instantiate(bullet, Gun2.transform.position, Gun2.transform.rotation);
         }
     }
 

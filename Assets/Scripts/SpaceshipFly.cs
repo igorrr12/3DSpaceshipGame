@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -12,8 +13,7 @@ public class SpaceshipFly : MonoBehaviour
     public float accelerationSpeed;
     public float brakeSpeed;
     public Rigidbody rb;
-    private bool wDown, wUp;
-    private bool sDown, sUp;
+    public float Spead;
 
     // Start is called before the first frame update
     void Start()
@@ -27,45 +27,37 @@ public class SpaceshipFly : MonoBehaviour
         //obrót nie kfestcionuj jak dzia³a bo sam niewiem.
         rotation = Pointer.GetComponent<Poiter>().Ofset;
         transform.Rotate(new Vector3(rotation.y / 200, rotation.x / -200, 0));
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
-            wDown = true;
+            rb.AddForce((transform.rotation * Vector3.forward) * Spead);
         }
-        if (Input.GetKeyUp(KeyCode.W))
+        if (Input.GetKey(KeyCode.S))
         {
-            wDown = false;
+            rb.AddForce((transform.rotation * Vector3.back) * Spead);
+        }
+        if (Input.GetKey(KeyCode.a))
+        {
+            rb.AddForce((transform.rotation * Vector3.left) * Spead);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            rb.AddForce((transform.rotation * Vector3.right) * Spead);
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKey(KeyCode.Space))
         {
-        
-        if (wDown)
+            rb.AddForce((transform.rotation * Vector3.up) * Spead);
+        }
+        if (Input.GetKey(KeyCode.LeftControl))
         {
-            rb.AddForce(transform.forward * accelerationSpeed * 1000 * Time.deltaTime);
+            rb.AddForce((transform.rotation * Vector3.down) * Spead);
         }
-
-            sDown = true;
-        }
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-            sDown = false;
-        }
-        Debug.Log(rb.velocity);
-   
     }
 
     void FixedUpdate()
     {
        
-        if (sDown)
-        {
-            if (rb.velocity.x > 0 || rb.velocity.z > 0) 
-            {
-                rb.AddForce(-transform.forward * 1000 * brakeSpeed * Time.deltaTime);
-            }
-        }
-
-        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+       
 
     }
 }
